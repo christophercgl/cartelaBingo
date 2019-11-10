@@ -109,7 +109,7 @@
             var conteudo_n = "";
             var conteudo_g = "";
             var conteudo_o = "";
-console.log(array_b)
+
             $("#btn_novo_numero").click(function() {
 
                let vl = $("#novo_numero").val()
@@ -121,9 +121,13 @@ console.log(array_b)
 
                let retorno = ''
                let add = true
-console.log(array_b) 
-return false
+
                if (vl <= 15) {
+
+                  if (conteudo_b == '' && array_b == '' && $("#input_b").val() != '' && $("#input_b_conteudo").val() != '') {
+                     array_b = $("#input_b").val().split(',')
+                     conteudo_b = $("#input_b_conteudo").val()
+                  }
 
                   retorno = adicionaValor(conteudo_b, array_b, vl)
 
@@ -136,6 +140,11 @@ return false
 
                } else if (vl <= 30) {
 
+                  if (conteudo_i == '' && array_i == '' && $("#input_i").val() != '' && $("#input_i_conteudo").val() != '') {
+                     array_i = $("#input_i").val().split(',')
+                     conteudo_i = $("#input_i_conteudo").val()
+                  }
+
                   retorno = adicionaValor(conteudo_i, array_i, vl)
 
                   if (retorno != 'error') {
@@ -146,6 +155,11 @@ return false
                   }
 
                } else if (vl <= 45) {
+
+                  if (conteudo_n == '' && array_n == '' && $("#input_n").val() != '' && $("#input_n_conteudo").val() != '') {
+                     array_n = $("#input_n").val().split(',')
+                     conteudo_n = $("#input_n_conteudo").val()
+                  }
 
                   retorno = adicionaValor(conteudo_n, array_n, vl)
 
@@ -158,6 +172,11 @@ return false
 
                } else if (vl <= 60) {
                   
+                  if (conteudo_g == '' && array_g == '' && $("#input_g").val() != '' && $("#input_g_conteudo").val() != '') {
+                     array_g = $("#input_g").val().split(',')
+                     conteudo_g = $("#input_g_conteudo").val()
+                  }
+
                   retorno = adicionaValor(conteudo_g, array_g, vl)
 
                   if (retorno != 'error') {
@@ -169,6 +188,11 @@ return false
 
                } else if (vl <= 75){
                   
+                  if (conteudo_o == '' && array_o == '' && $("#input_o").val() != '' && $("#input_o_conteudo").val() != '') {
+                     array_o = $("#input_o").val().split(',')
+                     conteudo_o = $("#input_o_conteudo").val()
+                  }
+
                   retorno = adicionaValor(conteudo_o, array_o, vl)
 
                   if (retorno != 'error') {
@@ -580,7 +604,7 @@ return false
                 $('#modalNumeroSorteado').modal('hide')
                 $("#ultimo_numero").val(v)
                 limpaNovoNumero()
-            }, 1000);
+            }, 5000);
          }
 
          function retornaLetra(v) {
@@ -620,7 +644,7 @@ return false
                if (vl == el) {
                   alert("Número já sorteado !")
                   add = false
-                  return 'error'
+                  conteudo = 'error'
                }
             })
 
@@ -670,11 +694,11 @@ return false
 
             tem_b = getLocalStorage('b')
             if (tem_b != null && tem_b != undefined) {
-               console.log(tem_b)
                array_b = tem_b.split(',')
-               console.log(array_b)
                conteudo_b = montaConteudo(array_b)
                $(".b").html(conteudo_b)
+               $("#input_b").val(tem_b)
+               $("#input_b_conteudo").val(conteudo_b)
             }
 
             tem_i = getLocalStorage('i')
@@ -682,6 +706,8 @@ return false
                array_i = tem_i.split(',')
                conteudo_i = montaConteudo(array_i)
                $(".i").html(conteudo_i)
+               $("#input_i").val(tem_i)
+               $("#input_i_conteudo").val(conteudo_i)
             }
 
             tem_n = getLocalStorage('n')
@@ -689,6 +715,8 @@ return false
                array_n = tem_n.split(',')
                conteudo_n = montaConteudo(array_n)                
                $(".n").html(conteudo_n)
+               $("#input_n").val(tem_n)
+               $("#input_n_conteudo").val(conteudo_n)
             }
 
             tem_g = getLocalStorage('g')
@@ -696,6 +724,8 @@ return false
                array_g = tem_g.split(',')
                conteudo_g = montaConteudo(array_g)
                $(".g").html(conteudo_g)
+               $("#input_g").val(tem_g)
+               $("#input_g_conteudo").val(conteudo_g)
             }
             
             tem_o = getLocalStorage('o')
@@ -703,6 +733,8 @@ return false
                array_o = tem_o.split(',')
                conteudo_o = montaConteudo(array_o)
                $(".o").html(conteudo_o)
+               $("#input_o").val(tem_o)
+               $("#input_o_conteudo").val(conteudo_o)
             }
         }
 
@@ -720,6 +752,16 @@ return false
             <div class="col-1"></div>
          </div>
          <div class="row cartela div_numeros">
+            <input type="hidden" name="input_b" id="input_b" value="">
+            <input type="hidden" name="input_i" id="input_i" value="">
+            <input type="hidden" name="input_n" id="input_n" value="">
+            <input type="hidden" name="input_g" id="input_g" value="">
+            <input type="hidden" name="input_o" id="input_o" value="">
+            <input type="hidden" name="input_b_conteudo" id="input_b_conteudo" value="">
+            <input type="hidden" name="input_i_conteudo" id="input_i_conteudo" value="">
+            <input type="hidden" name="input_n_conteudo" id="input_n_conteudo" value="">
+            <input type="hidden" name="input_g_conteudo" id="input_g_conteudo" value="">
+            <input type="hidden" name="input_o_conteudo" id="input_o_conteudo" value="">
             <div class="col-1"></div>
             <div class="col-2 b div_b div_p"></div>
             <div class="col-2 i div_i div_p"></div>
