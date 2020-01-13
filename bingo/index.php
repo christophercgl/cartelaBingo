@@ -84,6 +84,10 @@
       
       $(function () {
         $('.carousel').carousel()
+
+        $("#btn_nova_cartela").click(function() {
+          window.open('cartela.php')
+        });
       })
 
 
@@ -221,6 +225,26 @@
         <br />
         <img class="d-block w-100 img_new centralizar" src="img/new.png" alt="First slide">
       </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <br />
+
+    <div class="row featurette foco">
+     <div class="col-md-2">
+     </div>
+     <div class="col-md-4 centralizar">
+      <br />
+      <h1>Para Abrir Uma Cartela</h1>
+      <br />
+     </div>
+     <div class="col-md-4 centralizar">
+      <br />
+      <button class="btn btn-primary btn-lg" id="btn_nova_cartela">Clique Aqui</button>
+      <br />
+     </div>
+     <div class="col-md-2">
+     </div>
     </div>
 
     <hr class="featurette-divider">
