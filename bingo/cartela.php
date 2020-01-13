@@ -339,13 +339,17 @@
                if (letra_unica) {
                   if (letra_para == 'b') {
 
+                  	 if (numero_ja_sorteado(array_b, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+
                      posicao = array_b.indexOf(de)
                      if (posicao > -1) {
                         array_b.splice(posicao,1)
                         array_b.push(para)
                      } else {
-                        alert("Número não encontrado !")
-                        limpaDePara()
+                        nao_encontrado()
                         return false
                      }
 
@@ -356,13 +360,17 @@
 
                   } else if (letra_para == 'i') {
 
+                  	 if (numero_ja_sorteado(array_i, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+
                      posicao = array_i.indexOf(de)
                      if (posicao > -1) {
                         array_i.splice(posicao,1)
                         array_i.push(para)
                      } else {
-                        alert("Número não encontrado !")
-                        limpaDePara()
+                        nao_encontrado()
                         return false
                      }
 
@@ -373,13 +381,17 @@
 
                   } else if (letra_para == 'n') {
 
+                  	 if (numero_ja_sorteado(array_n, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+
                      posicao = array_n.indexOf(de)
                      if (posicao > -1) {
                         array_n.splice(posicao,1)
                         array_n.push(para)
                      } else {
-                        alert("Número não encontrado !")
-                        limpaDePara()
+                        nao_encontrado()
                         return false
                      }
 
@@ -390,13 +402,17 @@
 
                   } else if (letra_para == 'g') {
 
+                  	 if (numero_ja_sorteado(array_g, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+
                      posicao = array_g.indexOf(de)
                      if (posicao > -1) {
                         array_g.splice(posicao,1)
                         array_g.push(para)
                      } else {
-                        alert("Número não encontrado !")
-                        limpaDePara()
+                        nao_encontrado()
                         return false
                      }
 
@@ -407,13 +423,17 @@
 
                   } else if (letra_para == 'o') {
 
+                  	 if (numero_ja_sorteado(array_o, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+
                      posicao = array_o.indexOf(de)
                      if (posicao > -1) {
                         array_o.splice(posicao,1)
                         array_o.push(para)
                      } else {
-                        alert("Número não encontrado !")
-                        limpaDePara()
+                        nao_encontrado()
                         return false
                      }
 
@@ -423,8 +443,7 @@
                      setLocalStorage('o', array_o)
 
                   } else {
-                     alert("Número não encontrado !")
-                     limpaDePara()
+                     nao_encontrado()
                      return false
                   }
                
@@ -433,6 +452,34 @@
                
                } else {
 
+               	if (letra_para == 'b') {
+               		 if (numero_ja_sorteado(array_b, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+               	} else if (letra_para == 'i') {
+               		 if (numero_ja_sorteado(array_i, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+               	} else if (letra_para == 'n') {
+               		 if (numero_ja_sorteado(array_n, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+               	} else if (letra_para == 'g') {
+               		 if (numero_ja_sorteado(array_g, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+               	} else if (letra_para == 'o') {
+               		 if (numero_ja_sorteado(array_o, para) == 'sorteado') {
+                  		ja_sorteado_msg()
+                        return false
+                  	 }
+               	}
+
+
                   switch(letra_de) {
                      case 'b':
 
@@ -440,8 +487,7 @@
                         if (posicao > -1) {
                            array_b.splice(posicao,1)
                         } else {
-                           alert("Número não encontrado !")
-                           limpaDePara()
+                           nao_encontrado()
                            return false
                         }
 
@@ -456,8 +502,7 @@
                         if (posicao > -1) {
                            array_i.splice(posicao,1)
                         } else {
-                           alert("Número não encontrado !")
-                           limpaDePara()
+                           nao_encontrado()
                            return false
                         }
 
@@ -472,8 +517,7 @@
                         if (posicao > -1) {
                            array_n.splice(posicao,1)
                         } else {
-                           alert("Número não encontrado !")
-                           limpaDePara()
+                           nao_encontrado()
                            return false
                         }
 
@@ -488,8 +532,7 @@
                         if (posicao > -1) {
                            array_g.splice(posicao,1)
                         } else {
-                           alert("Número não encontrado !")
-                           limpaDePara()
+                           nao_encontrado()
                            return false
                         }
 
@@ -504,8 +547,7 @@
                         if (posicao > -1) {
                            array_o.splice(posicao,1)
                         } else {
-                           alert("Número não encontrado !")
-                           limpaDePara()
+                           nao_encontrado()
                            return false
                         }
 
@@ -598,13 +640,14 @@
          })
 
          function abreModal(v) {
+         	$("#novo_numero").val('')
             $('#modalNumeroSorteado').modal('show')
             $(".valor").html(v)
             setTimeout(function () {
                 $('#modalNumeroSorteado').modal('hide')
                 $("#ultimo_numero").val(v)
                 limpaNovoNumero()
-            }, 5000);
+            }, 5000); 
          }
 
          function retornaLetra(v) {
@@ -637,6 +680,19 @@
             return conteudo
          }
 
+         function numero_ja_sorteado(array =  null, numero = null) {
+         	if ($.inArray(numero, array) != -1) {
+         		return 'sorteado'
+         	}
+
+         	return 'ok'	
+         }
+
+         function ja_sorteado_msg () {
+         	alert("Número para já sorteado, convém exculir o número DE !")
+            limpaDePara()
+         }
+
          function adicionaValor(conteudo = null, array = null, vl, alterar = null) {
             let add = true
 
@@ -663,6 +719,11 @@
             }
 
             return conteudo
+         }
+
+         function nao_encontrado () {
+         	alert("Número não encontrado !")
+            limpaDePara()
          }
 
          const limpaNovoNumero = function() {
